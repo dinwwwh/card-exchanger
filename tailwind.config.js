@@ -1,16 +1,23 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-    mode: "jit",
+    mode: 'jit',
     purge: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                sky: colors.sky,
+                cyan: colors.cyan,
+            },
+        },
     },
     variants: {
         extend: {},
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [require('@tailwindcss/forms')],
 };
