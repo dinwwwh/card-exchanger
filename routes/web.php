@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function () {
+    return inertia('Welcome');
+});
+
+/** Card routes */
+Route::prefix('cards')->group(function () {
+
+    Route::get('exchange', [CardController::class, 'viewExchange'])
+        ->name('card.exchange');
+
+    Route::post('exchange', [CardController::class, 'exchange'])
+        ->name('card.exchange');
 });

@@ -26,6 +26,10 @@
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",
         "@tailwindcss/forms": "^0.3.4",
+        "@vuelidate/core": "^2.0.0-alpha.32",
+        "@vuelidate/validators": "^2.0.0-alpha.25",
+        "format-number": "^3.0.0",
+        "uuid": "^8.3.2",
         "vue": "^3.2.22"
     }
 }

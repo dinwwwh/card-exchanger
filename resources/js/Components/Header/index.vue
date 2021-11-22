@@ -13,6 +13,7 @@ import {
 } from '@headlessui/vue';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline';
 import { SearchIcon } from '@heroicons/vue/solid';
+import { Link } from '@inertiajs/inertia-vue3';
 
 const user = {
     name: 'Chelsea Hagon',
@@ -21,7 +22,11 @@ const user = {
     imageUrl:
         'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 };
-const navigation = [{ name: 'Trang chủ', href: '/', current: true }];
+const navigation = [
+    { name: 'Trang chủ', href: '/', current: true },
+    { name: 'Đổi thẻ cào', href: '/cards/exchange', current: false },
+    { name: 'Lịch sử', href: '/cards/history', current: false },
+];
 const userNavigation = [
     { name: 'Hồ sơ', href: '#' },
     { name: 'Cài đặt', href: '#' },
@@ -42,7 +47,7 @@ const userNavigation = [
         >
             <!-- Logo -->
             <div class="absolute left-0 py-5 flex-shrink-0 lg:static">
-                <a href="#">
+                <Link href="#">
                     <span class="sr-only">Workflow</span>
                     <!-- https://tailwindui.com/img/logos/workflow-mark-cyan-200.svg -->
                     <svg
@@ -56,7 +61,7 @@ const userNavigation = [
                             d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"
                         />
                     </svg>
-                </a>
+                </Link>
             </div>
 
             <!-- Right section on desktop -->
@@ -125,13 +130,13 @@ const userNavigation = [
                                 :key="item.name"
                                 v-slot="{ active }"
                             >
-                                <a
+                                <Link
                                     :href="item.href"
                                     :class="[
                                         active ? 'bg-gray-100' : '',
                                         'block px-4 py-2 text-sm text-gray-700',
                                     ]"
-                                    >{{ item.name }}</a
+                                    >{{ item.name }}</
                                 >
                             </MenuItem>
                         </MenuItems>
@@ -150,7 +155,7 @@ const userNavigation = [
                     <!-- Left nav -->
                     <div class="hidden lg:block lg:col-span-2">
                         <nav class="flex space-x-4">
-                            <a
+                            <Link
                                 v-for="item in navigation"
                                 :key="item.name"
                                 :href="item.href"
@@ -165,7 +170,7 @@ const userNavigation = [
                                 "
                             >
                                 {{ item.name }}
-                            </a>
+                            </Link>
                         </nav>
                     </div>
                     <div class="px-12 lg:px-0">
@@ -349,7 +354,7 @@ const userNavigation = [
                                     </div>
                                 </div>
                                 <div class="mt-3 px-2 space-y-1">
-                                    <a
+                                    <Link
                                         v-for="item in navigation"
                                         :key="item.name"
                                         :href="item.href"
@@ -363,7 +368,7 @@ const userNavigation = [
                                             hover:bg-gray-100
                                             hover:text-gray-800
                                         "
-                                        >{{ item.name }}</a
+                                        >{{ item.name }}</Link
                                     >
                                 </div>
                             </div>
@@ -424,7 +429,7 @@ const userNavigation = [
                                     </button>
                                 </div>
                                 <div class="mt-3 px-2 space-y-1">
-                                    <a
+                                    <Link
                                         v-for="item in userNavigation"
                                         :key="item.name"
                                         :href="item.href"
@@ -438,7 +443,7 @@ const userNavigation = [
                                             hover:bg-gray-100
                                             hover:text-gray-800
                                         "
-                                        >{{ item.name }}</a
+                                        >{{ item.name }}</
                                     >
                                 </div>
                             </div> -->

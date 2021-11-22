@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'thesieure' => [
+        'domain' => 'thesieure.com',
+        'partner_id' => 1839446361,
+        'partner_key' => '7bf7dad7fce28ffe0ee2e2b50c0d878d'
+    ],
 ];
