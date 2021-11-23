@@ -51,7 +51,7 @@ class CardController extends Controller
             throw $th;
         }
 
-        // return redirect()->route('card.viewHistory');
+        return redirect()->route('card.viewHistory');
     }
 
     /** View exchange history */

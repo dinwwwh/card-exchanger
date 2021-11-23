@@ -21,7 +21,7 @@ class Card extends Model
         'code',
         'type_id',
         'approver_id',
-        'approver_at',
+        'approved_at',
         'description',
         'received_value',
         'paid_at',
