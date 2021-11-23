@@ -34,8 +34,8 @@ watch(
 </script>
 
 <template>
-    <div class="grid md:grid-cols-3 gap-3">
-        <Group class="md:col-span-2 space-y-1">
+    <div class="grid lg:grid-cols-3 gap-3">
+        <Group class="lg:col-span-2 space-y-1">
             <div class="flex items-center justify-end">
                 <SearchInput
                     v-model="search.value"
@@ -47,7 +47,11 @@ watch(
 
             <CardTable :cards="props.cards.data" />
 
-            <Pagination :meta="props.cards" href="/cards/history" />
+            <Pagination
+                :meta="props.cards"
+                href="/cards/history"
+                :data="search.value ? { search: search.value } : {}"
+            />
         </Group>
 
         <div class="space-y-3">

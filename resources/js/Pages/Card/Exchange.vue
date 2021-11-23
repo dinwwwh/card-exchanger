@@ -106,7 +106,7 @@ async function exchange() {
                 <Pagination
                     :meta="props.types"
                     href="/cards/exchange"
-                    :data="{ search }"
+                    :data="search ? { search } : {}"
                 />
             </template>
 
