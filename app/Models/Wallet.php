@@ -16,6 +16,9 @@ class Wallet extends Model
     /** Wallet types */
     public const MOMO_TYPE = 1;
 
+    protected $hidden = [
+        'account'
+    ];
     protected  $fillable = [
         'account',
         'type',

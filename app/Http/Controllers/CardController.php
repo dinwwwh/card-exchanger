@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Card\ExchangeRequest;
 use App\Http\Requests\Card\ViewExchangeRequest;
+use App\Http\Requests\Card\ViewHistoryRequest;
 use App\Models\Card;
 use App\Models\CardType;
 use App\Models\Wallet;
@@ -51,5 +52,24 @@ class CardController extends Controller
         }
 
         // return redirect()->route('card.viewHistory');
+    }
+
+    /** View exchange history */
+    public function viewHistory(ViewHistoryRequest $request)
+    {
+        $cards = Card::orderBy('id', 'desc')
+            ->when(
+                $request->search,
+                fn ($query, $search) => $query
+                    ->where('serial', 'like', '%' . $search . '%')
+            )
+            ->paginate(12);
+
+        return inertia('Card/History', [
+            'cards' => Arr::camel($cards->toArray()),
+            'oldQueries' => [
+                'search' => $request->search,
+            ],
+        ]);
     }
 }

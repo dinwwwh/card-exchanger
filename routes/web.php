@@ -23,8 +23,10 @@ Route::get('', function () {
 Route::prefix('cards')->group(function () {
 
     Route::get('exchange', [CardController::class, 'viewExchange'])
-        ->name('card.exchange');
-
+        ->name('card.viewExchange');
     Route::post('exchange', [CardController::class, 'exchange'])
         ->name('card.exchange');
+
+    Route::get('history', [CardController::class, 'viewHistory'])
+        ->name('card.viewHistory');
 });
