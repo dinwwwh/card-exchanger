@@ -35,4 +35,10 @@ return [
         'partner_id' => 1839446361,
         'partner_key' => '7bf7dad7fce28ffe0ee2e2b50c0d878d'
     ],
+
+    'momo' => [
+        'domain' => env('MOMO_DOMAIN', 'momosv3.apimienphi.com'),
+        'phone' => env('MOMO_PHONE'),
+        'access_token' => env('MOMO_ACCESS_TOKEN'),
+    ],
 ];

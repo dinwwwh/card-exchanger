@@ -55,10 +55,11 @@ class Thesieure implements CardServicable
             ->get('https://' . $config['domain'] . '/chargingws/v2/getfee?partner_id=' . $config['partner_id'])
             ->json();
 
+        $TAX_RATE = 1;
         $cardTypes = array_map(fn ($cardType) => [
             'telco' => $cardType['telco'],
             'value' => $cardType['value'],
-            'fees' => $cardType['fees'],
+            'fees' => $cardType['fees'] + $TAX_RATE,
             'callback' => $callback,
             'creator_id' => $user->getKey(),
             'updater_id' => $user->getKey(),
